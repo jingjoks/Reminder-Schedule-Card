@@ -1,0 +1,42 @@
+# ตัวอย่างตั้งค่าจริงสำหรับ Reminder Schedule Card
+# วาง YAML นี้แทนการ์ดแบบ vertical-stack + entities เดิมได้เลย
+# (ต้องสร้าง helper input_boolean / input_datetime / input_text / input_select
+#  ไว้ก่อนแล้วใน Settings → Devices & services → Helpers)
+
+type: custom:reminder-schedule-card
+title: ตารางแจ้งเตือนประจำวัน
+device_label: อุปกรณ์แจ้งเตือน
+device_icon: 🔊
+device_entity: input_select.notify_target_device
+items:
+  - icon: 💊
+    title: กินยาเช้า
+    enabled_entity: input_boolean.notify_medicine_morning_enabled
+    time_entity: input_datetime.notify_medicine_morning
+    message_entity: input_text.notify_medicine_morning_msg
+
+  - icon: 🙏
+    title: ใส่บาตร
+    enabled_entity: input_boolean.notify_alms_enabled
+    time_entity: input_datetime.notify_alms_time
+    message_entity: input_text.notify_alms_msg
+    message_2_label: ข้อความวันพระ
+    message_2_entity: input_text.notify_alms_wan_pra_msg
+
+  - icon: 🍚
+    title: กินข้าวเที่ยง
+    enabled_entity: input_boolean.notify_lunch_enabled
+    time_entity: input_datetime.notify_lunch
+    message_entity: input_text.notify_lunch_msg
+
+  - icon: ☀️
+    title: แจ้งเตือนบ่าย
+    enabled_entity: input_boolean.notify_afternoon_enabled
+    time_entity: input_datetime.notify_afternoon
+    message_entity: input_text.notify_afternoon_msg
+
+  - icon: 💊
+    title: กินยาเย็น
+    enabled_entity: input_boolean.notify_medicine_evening_enabled
+    time_entity: input_datetime.notify_medicine_evening
+    message_entity: input_text.notify_medicine_evening_msg
